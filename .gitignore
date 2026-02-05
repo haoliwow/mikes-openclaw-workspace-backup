@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# local/runtime noise
+*.log
+
+# OpenClaw local artifacts (keep the docs, drop volatile)
+media/
+**/sessions/*.jsonl
+memory/heartbeat-state.json
