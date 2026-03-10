@@ -207,6 +207,16 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## 招募工作流程 (Recruitment)
+
+→ 見 `RECRUITMENT_HANDBOOK.md` (SOP、角色分工、社群清單)  
+→ 資料記錄：Google Sheet「履歷池 v2」  
+→ 系統更新：Step1ne API (見 `MEMORY.md`)  
+
+**角色：**
+- **Phoebe** - 戰略決策、詳細評分、最終決定
+- **Jacky** - 社群管理、簡歷初篩、發文執行
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.

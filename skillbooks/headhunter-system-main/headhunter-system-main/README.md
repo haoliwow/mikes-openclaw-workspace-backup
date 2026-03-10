@@ -1,0 +1,377 @@
+# 🦞 獵頭自動化爬蟲系統 v2.0
+
+自動爬取 104 + CakeResume + 1111 + 518 職缺，補充聯絡資訊，並同步到 Google Sheet。
+
+## 📋 前置作業
+
+### 1. 系統需求
+- Node.js 18+ 
+- npm 或 yarn
+
+### 2. 安裝步驟
+
+```bash
+# 1. Clone 專案
+git clone https://github.com/jacky6658/headhunter-system.git
+cd headhunter-system
+
+# 2. 安裝依賴
+npm install
+
+# 3. 安裝 Playwright 瀏覽器
+npx playwright install chromium
+```
+
+### 3. 環境設定
+
+```bash
+# 設定 Brave Search API Key（聯絡資訊補充用）
+export BRAVE_API_KEY="your-brave-api-key"
+
+# 或加入 ~/.bashrc 或 ~/.zshrc
+echo 'export BRAVE_API_KEY="your-key"' >> ~/.zshrc
+```
+
+**取得 Brave API Key**：https://brave.com/search/api/
+
+### 4. Google Sheets 設定（可選）
+
+如果要自動匯出到 Google Sheet：
+
+```bash
+# 安裝 gog CLI
+npm install -g gog
+
+# 授權 Google 帳號
+gog auth login --services sheets,drive
+```
+
+### 5. 設定檔
+
+編輯 `config.json`：
+
+```json
+{
+  "platforms": {
+    "104": true,        // 啟用 104
+    "cakeresume": true, // 啟用 CakeResume
+    "1111": false,      // 啟用 1111（可選）
+    "518": false        // 啟用 518（可選）
+  },
+  "scraper": {
+    "headless": true,
+    "slowMo": 1000,        // 每個操作間隔 1 秒
+    "maxResults": 20,
+    "requestDelay": 2000   // 每筆請求間隔 2 秒
+  },
+  "googleSheets": {
+    "enabled": true,
+    "sheetId": "你的-Google-Sheet-ID",
+    "account": "your-email@gmail.com"
+  }
+}
+```
+
+### ⚠️ 爬蟲注意事項（避免被封鎖）
+
+本系統已內建以下防護機制：
+
+| 機制 | 說明 |
+|------|------|
+| **隨機延遲** | 每次請求間隔 1-3 秒（模擬真人瀏覽） |
+| **請求頻率限制** | 每筆職缺詳情間隔 2 秒以上 |
+| **User-Agent 模擬** | 使用真實瀏覽器 User-Agent |
+| **Headless 瀏覽器** | 使用 Playwright 模擬完整瀏覽器行為 |
+
+**建議事項**：
+- ❌ 不要短時間內大量爬取（建議每次 < 50 筆）
+- ❌ 不要同時開多個爬蟲程序
+- ✅ 使用職缺去重功能，避免重複爬取
+- ✅ 錯開時間執行（如早上、下午各一次）
+
+---
+
+## ✨ 功能
+
+- ✅ **104 人力銀行**爬蟲（職缺 + 聯絡人）
+- ✅ **CakeResume / Cake.me** 爬蟲
+- ✅ **1111 人力銀行**爬蟲（可選）
+- ✅ **518 人力銀行**爬蟲（可選）
+- ✅ **職缺去重**（7 天內不重複爬取）
+- ✅ **官網聯絡資訊補充**（電話、信箱，嘗試多個網站）
+- ✅ **Google Sheet 自動匯出**（分平台分頁）
+- ✅ **批次郵件發送**（個性化模板）
+- ✅ CSV 備份匯出
+
+## 🚀 使用方式
+
+### 方式一：跟 AI Bot 說（推薦）
+
+直接用自然語言告訴 AI：
+
+```
+幫我搜尋 AI 工程師 台北 薪水 5 萬以上
+```
+
+```
+找 20 筆行銷企劃的職缺 地點台北 月薪 4 萬起
+```
+
+```
+搜尋短影音行銷 台北 40000 10筆
+```
+
+**AI 會自動**：
+1. 解析你的需求
+2. 執行爬蟲（104 + CakeResume）
+3. 補充聯絡資訊
+4. 匯出到 Google Sheet
+5. 回報結果
+
+### 方式二：命令列執行
+
+```bash
+cd /Users/user/clawd/projects/headhunter
+
+# 使用 run.sh
+./run.sh "關鍵字" "地點" [最低薪資] [最大筆數]
+
+# 範例
+./run.sh "AI 工程師" "台北" 50000 20
+./run.sh "行銷企劃" "新竹" 40000 10
+./run.sh "PM" "" 60000      # 不限地點
+```
+
+### 方式三：Node.js 直接執行
+
+```bash
+node scripts/main.js "AI 工程師" "台北" 50000 20
+```
+
+## 📊 輸出
+
+### Google Sheet（自動同步）
+- **104 分頁**：104 人力銀行職缺
+- **cakeresume 分頁**：CakeResume 職缺
+
+### CSV 檔案（備份）
+位置：`data/104_<關鍵字>_<日期>.csv`、`data/cakeresume_<關鍵字>_<日期>.csv`
+
+### 欄位
+| 欄位 | 說明 |
+|------|------|
+| 公司名稱 | 公司名稱 |
+| 職缺標題 | 職缺名稱 |
+| 薪資範圍 | 月薪/年薪/時薪 |
+| 地點 | 工作地點 |
+| 經驗要求 | 年資要求 |
+| 工作內容 | 職缺描述（前 300 字）|
+| 聯絡人 | HR / 負責人 |
+| 聯絡電話 | 公司電話 |
+| 聯絡信箱 | 公司信箱 |
+| 連結 | 職缺網址 |
+| 更新日期 | 最後更新 |
+
+## ⚙️ 設定
+
+### config.json
+
+```json
+{
+  "scraper": {
+    "maxResults": 20,
+    "requestDelay": 2000
+  },
+  "companyEnricher": {
+    "enabled": true,
+    "batchDelay": 2000
+  },
+  "googleSheets": {
+    "enabled": true,
+    "sheetId": "你的 Google Sheet ID",
+    "account": "your@gmail.com"
+  }
+}
+```
+
+### 環境變數
+
+- `BRAVE_API_KEY` - Brave Search API 金鑰（官網爬蟲用）
+
+## 🛠️ 安裝
+
+```bash
+cd /Users/user/clawd/projects/headhunter
+npm install
+
+# 安裝 Playwright 瀏覽器
+npx playwright install chromium
+```
+
+### Google Sheet 設定
+
+1. 確保 `gog` CLI 已授權：
+   ```bash
+   gog auth add your@gmail.com --services drive,sheets
+   ```
+
+2. 創建 Google Sheet，取得 Sheet ID
+
+3. 在 Sheet 中創建兩個分頁：`104` 和 `cakeresume`
+
+4. 更新 `config.json` 中的 `googleSheets.sheetId`
+
+## 📁 專案結構
+
+```
+headhunter/
+├── scripts/
+│   ├── main.js              # 主程式（整合所有功能）
+│   ├── search_104.js        # 104 爬蟲
+│   ├── search_cakeresume.js # CakeResume 爬蟲
+│   ├── company_enricher.js  # 官網聯絡資訊補充
+│   └── sheet_exporter.js    # Google Sheet 匯出
+├── data/                    # CSV 輸出目錄
+├── config.json              # 設定檔
+├── run.sh                   # 快速啟動腳本
+└── README.md
+```
+
+## 🔒 安全機制
+
+- ✅ 真實瀏覽器（Playwright Chromium）
+- ✅ 請求間隔 1-2 秒，避免被封鎖
+- ✅ 每次最多 20 筆，防止過度爬取
+- ✅ 模擬真人操作
+
+## 📈 聯絡資訊成功率
+
+| 項目 | 104 | CakeResume |
+|------|-----|------------|
+| 聯絡人 | ~100% | N/A |
+| 電話 | ~80% | N/A |
+| 信箱 | ~50% | N/A |
+
+（CakeResume 不提供聯絡資訊）
+
+## 🤖 給其他 AI Bot 的說明
+
+當用戶說類似以下的話時，執行獵頭爬蟲：
+
+**觸發關鍵字**：搜尋職缺、找工作、獵頭、爬蟲、104、CakeResume
+
+**解析用戶輸入**：
+- 關鍵字：職位名稱（AI 工程師、行銷企劃、PM...）
+- 地點：城市名（台北、新竹、高雄...）
+- 薪資：數字（40000、5萬、60K...）
+- 筆數：數字（10、20、30...）
+
+**執行指令**：
+```bash
+cd /Users/user/clawd/projects/headhunter && ./run.sh "關鍵字" "地點" 最低薪資 筆數
+```
+
+**回報結果**：
+- 找到幾筆職缺
+- Google Sheet 連結
+- 前 3 筆預覽
+
+## 🔍 公司反查功能
+
+輸入公司名稱，查詢聯絡方式：
+
+```bash
+node scripts/company_lookup.js "精誠資訊"
+node scripts/company_lookup.js "台積電" "聯發科" "鴻海"
+```
+
+**AI 對話範例**：
+```
+查詢 精誠資訊 的聯絡方式
+幫我找 台積電 的電話和信箱
+```
+
+## 🕐 定時自動執行
+
+支援設定多組搜尋條件，定時自動執行：
+
+```bash
+# 初始化設定檔
+node scripts/scheduled_search.js --init
+
+# 列出所有搜尋設定
+node scripts/scheduled_search.js --list
+
+# 執行所有啟用的搜尋
+node scripts/scheduled_search.js
+
+# 執行指定設定
+node scripts/scheduled_search.js --run "AI工程師_台北"
+```
+
+**設定檔位置**：`config/scheduled_searches.json`
+
+**Cron 範例**：
+```bash
+# 每天早上 9 點執行
+0 9 * * * cd /path/to/headhunter && node scripts/scheduled_search.js
+
+# 每週一早上 9 點執行
+0 9 * * 1 cd /path/to/headhunter && node scripts/scheduled_search.js
+```
+
+## 📧 批次郵件發送
+
+支援讀取 Google Sheet → 生成個性化郵件 → 批次發送
+
+### AI 對話流程（重要！）
+
+當用戶說「發信」時，AI **必須依序確認**：
+
+**Step 1: 確認發送者**
+```
+請問你是誰？
+- 姓名：
+- 職稱：
+- Email：
+- 電話：
+```
+
+**Step 2: 確認發送對象**
+```
+發送給哪些公司？
+- Sheet 網址或 ID：
+- 分頁名稱：
+- 用哪個模板？（開發信/年節問候/自訂）
+```
+
+**Step 3: 預覽確認（必要！）**
+```
+📧 信件預覽：
+主旨：xxxxxx
+內文：xxxxxx
+
+確認要發送嗎？(Y/N)
+```
+
+⚠️ **用戶確認 OK 後才能執行發送，不可跳過預覽！**
+
+### 信件模板
+
+位置：`config/templates/`
+- `開發信_人才招募.json` - 開發客戶用
+- `年節問候.json` - 節日祝福用
+
+### 命令列用法
+
+```bash
+# 預覽（不發送）
+node scripts/email_sender.js --sheet <ID> --tab "分頁" --preview
+
+# 實際發送（需先預覽確認）
+node scripts/email_sender.js --sheet <ID> --tab "分頁" --send
+```
+
+## 📝 License
+
+MIT

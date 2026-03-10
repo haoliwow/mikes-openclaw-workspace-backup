@@ -1,0 +1,28 @@
+【主旨】
+12年K8s/Prometheus全棧SRE | QPS 100K高併發系統突破 | 知名AI平台SRE架構決策職
+
+---
+
+【信件正文】
+
+Hi Hsiang,
+
+看到你的背景，有點被你的經歷吸引——12年SRE深度，還在一通數位做過Sr. DevOps Product Owner。你知道從infrastructure從零到100的全套邏輯，K8s、Prometheus、Kafka的深度整合，這不是光看文件學得出來的。
+
+我們正在找一個人，來主導一個新的SRE架構挑戰。
+
+這不是「infrastructure維運」的故事。我們的系統目標是**QPS 100K高併發**，現在卡在幾個瓶頸：
+- 多雲架構（GCP為主）的成本最佳化 vs 性能平衡
+- Prometheus監控在超高併發下的延遲優化
+- CI/CD Pipeline在Golang microservices下的deployment時間優化
+- 零停機遷移 + Canary部署的自動化決策邏輯
+
+你在一通數位做過類似的規模調優，我們要的不是「跟著流程走」，而是**完全掌控架構決策**——決定用什麼套件、什麼結構、怎麼trade-off。沒有legacy constraints，Greenfield系統設計。
+
+職位是SRE，但權力是架構師級的。
+
+薪資180k，我們剛剛確認budget。一通數位的人脈你也有，文化銜接會很快。
+
+有興趣聊聊嗎？
+
+—Phoebe
