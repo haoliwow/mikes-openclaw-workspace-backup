@@ -812,4 +812,77 @@ Gateway port: 18789
 - 確認#1173開發信是否寄出
 - BIM工程師人選outreach準備
 
+---
+
+## 🎯 Marcel Lin 宇泰華 PM 職位最終確認 (2026-03-11 22:12)
+
+**候選人基本資訊**
+- **ID**: Step1ne #2128
+- **名字**: Ting Yu (Marcel) Lin
+- **電話**: (+886) 975-001-750
+- **Email**: mcl@mclty.com
+- **LinkedIn**: linkedin.com/in/tingyulintyl
+- **地點**: Taipei (Open to relocation)
+
+**評估結果**
+- **評分**: 93/100 A+ 強烈推薦
+- **目標職位**: 宇泰華 PM (#216, 130k/年)
+- **評級理由**:
+  - ✅ 國際 B2B SaaS PM 3年資深（MOXA 全球 90+ 國家）
+  - ✅ AI 實踐者（CardLLM iOS app 已上架，on-device LLM + freemium）
+  - ✅ 數據驅動增長（25% 銷售提升、33% YoY 平台成長、75% 上線效率提升）
+  - ✅ 頂級學歷（政大 MBA Ranked #1 Taiwan）
+  - ✅ 國際視野（母語中文 + 流利英文）
+  - ✅ 創業思維（獨立開發 CardLLM，有商業化經驗）
+
+**企業配適度**
+- **完美匹配原因**:
+  1. 宇泰華業務 = AI Creator Economy 平台，Marcel 正在做 AI + Mobile 產品
+  2. PM 成長軌跡自然承接：MOXA (大平台) → CardLLM (創業) → 宇泰華 (新創 + AI = 下一步)
+  3. 國際化補缺：宇泰華 42 人台灣新創，急需國際 GTM 經驗
+  4. 決策權符合：MOXA 已做過全球協調，宇泰華 3人PM團隊 = 更高決策權
+
+**面試安排**
+- **快篩框架**: ✅ 已備妥 6 題快篩（5-10 分鐘）
+  1. 動機確認：CardLLM timeline + 是否 non-compete
+  2. 薪資確認：130k 可接受？談判空間？
+  3. 時程確認：何時可開始？
+  4. 競爭對手：有其他 offer？
+  5. 疑慮排除：對 PalUp 有保留？
+  6. 核心動機：為什麼想來（非薪資）
+- **深度面試**: 12 題框架已準備（技術方向、產品願景、團隊協作）
+- **決策速度**: All green → 24-48h 內準備 offer（A+ 候選人防搶）
+
+**待辦**
+- ⏳ Phoebe 確認面試時間 → 立即執行快篩
+- ✅ 企業推薦摘要已備妥（企業版發送用）
+- ✅ 完整基本資料已在 Step1ne 中更新（work_history, education_details 精確）
+
+---
+
+## ⚠️ GitHub 備份連結失效 (2026-03-11 22:05 Issue)
+
+**問題發現時間**
+- 2026-03-11 22:00 每日自動備份時觸發
+- 本地 commit 成功：4 個檔案變更（Marcel 資料 + 開發信 + 面試框架）
+- 遠端 push 失敗：`repository not found`
+
+**根本原因**
+- GitHub 倉庫連結失效
+- Remote URL: `https://github.com/haoliwow/mikes-openclaw-workspace-backup.git`
+- 可能原因：(a) 倉庫被刪除 (b) 存取權限失效 (c) URL 錯誤
+
+**當前狀態**
+- ✅ **本地數據安全**：2 個待推送 commits 已在本地保存
+- ❌ **遠端備份失效**：GitHub 無法同步
+
+**待辦**
+- ⏳ Phoebe 提供新 GitHub 倉庫位址或確認新建
+- 或使用替代方案（Google Drive、其他雲儲存）
+- 下次自動備份時（明日 22:00）會重新嘗試推送
+
+**備份計畫不變**
+- 每日 22:00 自動執行 git add/commit
+- 待 GitHub 連結修復後，push 會恢復
+
 
