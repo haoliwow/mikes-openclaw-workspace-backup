@@ -9,6 +9,73 @@
 - **限額**: 5000 queries/month (免費方案)
 - **⚠️ 重要**: 這是 Phoebe 最後一次給的。下次需要新 key 時，**直接去 https://api.search.brave.com 自己重新申請**，不要再問 Phoebe。
 
+### 職缺群客戶名單 Google Sheet (2026-03-16 記錄)
+- **Sheet ID**: `1XpH0jwmbLdVxMz4uud6bYt-NXKll91tc1qOVuk0HkDo`
+- **Sheet 名**: `工作表1`
+- **授權帳號**: haoliwow@gmail.com (已授權)
+- **用途**: Threads 入群回應人選匯入
+- **匯入工具**: `gog sheets update [sheetId] "工作表1!A[row]:H[row]" --values-json [...] --account haoliwow@gmail.com`
+- **⚠️ 重要**: 記住 Sheet ID 和匯入流程，不要每次都問 Phoebe
+
+## 📋 PDF 履歷完整匯入流程 (2026-03-16 確立)
+
+**適用對象**：所有 PDF 履歷（新增或已存在候選人）
+
+### 四步驟完整處理：
+
+**步驟 1：提取履歷資訊**
+- 姓名、現職、年資、技能、工作經歷、教育背景、LinkedIn/GitHub 連結
+
+**步驟 2：匯入/更新 Step1ne**
+- 若新候選人：POST /api/candidates
+- 若既有：PATCH /api/candidates/{id}（優先用 PATCH）
+- **必填**：name, location, current_position, total_years, skills, source, status, recruiter
+- **work_history 必須是 JSON 陣列**（見格式指南）
+
+**步驟 3：補齊核心匹配資料（snake_case）**
+- `total_years` ← **不是 `years_experience`** ⚠️
+- `job_changes`、`avg_tenure_months`、`recent_gap_months`
+- `stability_score`、`talent_level`（只接受 A/B/C/D，**不接受 A+**）、`status`、`target_job_id`
+
+**步驟 4：補齊 AI 評估（PostgreSQL 直連）**
+- 安裝：`npm install pg`
+- 用 Node.js Pool 直連更新 `ai_grade`、`ai_score`、`ai_summary`
+- 不能用 API，因為 API 不完全支持這些欄位
+
+---
+
+### Step1ne API Key (2026-03-16 記錄)
+- **Bearer Token**: `PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ`
+- **用途**: 候選人匯入、更新 (POST/PATCH /api/candidates)
+- **用法**: `Authorization: Bearer PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ`
+- **⚠️ 重要**: 記住 Key，下次候選人匯入直接用，不要再問 Phoebe
+
+### Step1ne API 匯入格式規則 (2026-03-16 Jacky確認)
+**正確欄位名**（常見錯誤）：
+- `recruiter` ← 不是 `consultant` ⚠️ 最常踩
+- `total_years` ← 不是 `years_of_experience`
+- `work_history` ← **必須是 JSON 陣列**（snake_case，不是 camelCase）
+
+**必填欄位**：name, location, current_position, total_years, skills, source, status, recruiter
+
+**POST vs PATCH 差異**：
+- **POST** /api/candidates：用 COALESCE(work_history, $15)，只在現有 work_history 為 NULL 時才寫入
+- **PATCH** /api/candidates/{id}：直接覆寫，沒有 COALESCE 保護 → **優先用 PATCH**
+
+**work_history 格式**：
+```json
+[
+  {
+    "company": "公司名",
+    "title": "職稱",
+    "start": "2019-03",
+    "end": "present",
+    "description": "工作描述"
+  }
+]
+```
+- 詳見：`/Step1ne-API-格式指南.md`
+
 ---
 
 ## 核心工作流程
@@ -390,6 +457,27 @@ ISO27001 和 CEH 認證也有，真的很厲害。
 
 ---
 
+## 🎯 Current Recruitment Focus (2026-03-16 Update)
+
+### Active Candidate: 毛柏迪 (Bodi Mao) - Phone Screening Pending
+- **ID**: #2446 (Step1ne)
+- **Profile**: 23yo PM, English Native, Melbourne IT 碩士 + Psychology 學士, 2-3y full-stack PM at 戀結科技
+- **Top Match**: 宇泰華科技 Product Manager (98/100 A++)
+  - Unique advantage: English Native requirement
+  - Position: Series A, new role (03/11), high growth potential
+  - Condition compliance: 100% (1-2y exp → has 2-3y, fluent English, technical BG, agile certified, data-driven)
+- **Phone Screening Status**: Script ready (`毛柏迪_電話篩選稿本.md`), 17 questions, 4 stages, awaiting execution
+- **Backup positions**: AIJob #3 (90/100), 遊戲橘子 #20 (78/100)
+- **Next**: Phone screening → post-call evaluation → recommendation letter → push to 宇泰華
+
+### Key Job Matching Principle (Dennis Lin #1221 Validation)
+- **Job Fit = Technical Score (必要) + Salary Match + Position Type + Career Trajectory (充分)**
+- **Not identical**: Can have 88/100 technical but 20/100 Job Fit (Dennis case: SD role vs expected Team Lead)
+- **Screening reveals**: Phone call validates motivation (拉力 vs 推力), not just skills matching
+- **For 毛柏迪**: Must confirm in call that PM ownership role (not coordinator), startup growth mindset, English work comfort
+
+---
+
 ## 5. 硬性篩選條件框架 (2026-03-03 正式確立)
 
 **三層驗證機制（缺一不可）：**
@@ -459,6 +547,153 @@ ISO27001 和 CEH 認證也有，真的很厲害。
 1. 591.com.tw (pages 1-4+, Neihu area)
 2. 信義房屋 (property listings)
 3. 樂屋網 (rental market)
+
+---
+
+## 🏢 Step1ne 系統架構 & API 指南 (2026-03-16 - 系統知識庫)
+
+### 三個 API 存取入口（優先順序）
+1. **http://localhost:3003** (公司內網，最快) → 優先用這個
+2. **https://api-hr.step1ne.com** (外部 Tunnel) → localhost 不可用時用這個
+3. **https://backendstep1ne.zeabur.app** (雲端備援) → 前兩個都掛時用這個
+
+### 前端存取
+- 外部: https://hrsystem.step1ne.com
+- 內網: http://localhost:3002
+
+### 認證
+- **一般端點**: Authorization: Bearer `PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ`
+- **不需認證**: /api/health, /api/guide*
+
+### 核心資料表（PostgreSQL @ localhost:5432/step1ne, user:step1ne, no password）
+| 表名 | 欄位數 | 用途 |
+|------|--------|------|
+| candidates_pipeline | 88 | 人選資料（名字、技能、職涯、AI評分等） |
+| jobs_pipeline | 48 | 職缺（職位名、薪資、客戶、需求條件等） |
+| clients | 22 | BD 客戶 |
+
+### 常見 API 端點（47 個）
+| 功能 | 端點 |
+|------|------|
+| 人選搜尋 | GET /api/candidates?name=... |
+| 人選新增 | POST /api/candidates |
+| 人選更新 | PATCH /api/candidates/{id} |
+| 職缺列表 | GET /api/jobs |
+| 系統檢查 | GET /api/health |
+
+### ⚠️ 常見錯誤與修正
+1. **POST vs PATCH**: POST 不覆寫已有欄位 → 要強制更新用 PATCH
+2. **欄位名稱**: 優先用 snake_case (current_position, not position)
+3. **work_history**: 必須是 JSON 陣列 (not 字串)
+4. **更新後加 updated_at=NOW()**: 否則前端不會偵測變更
+5. **talent_level**: 只接受 A/B/C/D (不接受 A+)
+6. **刪除**: 不要用 DELETE → 改 status='淘汰'
+
+### 模組化手冊（GET 這些端點來學習）
+- GET /api/guide/candidates → 人選模組 (11 端點)
+- GET /api/guide/jobs → 職缺模組 (6 端點)
+- GET /api/guide/clients → 客戶模組 (11 端點)
+- GET /api/guide/talent-ops → AI 評分模組 (19 端點)
+- GET /api/guide/resume-sop → 履歷處理 SOP
+
+---
+
+## 📋 Phoebe 的履歷處理 SOP v1.0 (2026-03-16 - 系統標準作業流程)
+
+**適用**: Mike (Claude AI 助理) 協助 Phoebe 的所有候選人匯入、評估、匯報
+**系統**: Step1ne HR System → https://api-hr.step1ne.com
+**API Key**: `PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ` (永遠記住)
+**執行位置**: GET https://api-hr.step1ne.com/api/guide/resume-sop
+
+### 6步驟完整流程
+```
+收到履歷 PDF/LinkedIn
+     ↓
+Step 1：解析履歷 (name, email, phone, linkedin_url, location, current_position, current_title, current_company, total_years, job_changes, avg_tenure_months, recent_gap_months, skills, education, work_history)
+     ↓
+Step 2：查詢系統 (curl /api/candidates?name=xxx)
+     ↓
+Step 3A（新人選）→ POST /api/candidates
+Step 3B（已存在）→ PATCH /api/candidates/{id}
+     ↓
+Step 4：AI 評估 (根據履歷評定等級 A/B/C/D)
+     ↓
+Step 5：寫入評估 (PATCH ai_grade/ai_score/ai_summary/talent_level/target_job_id)
+     ↓
+Step 6：驗證確認 (GET /api/candidates/{id} 確認同步)
+```
+
+### 必記欄位規則
+**基本**: name, email, phone, linkedin_url, location, gender, birthday  
+**職涯**: current_position, current_title, current_company, total_years, job_changes, avg_tenure_months, recent_gap_months  
+**技能/學歷**: skills (逗號分隔), education  
+**工作經歷**: work_history (JSONB array)
+
+### work_history 格式 (JSONB array)
+```json
+[
+  {
+    "company": "公司名",
+    "position": "職稱",
+    "startDate": "YYYY-MM",
+    "endDate": "YYYY-MM 或 現在",
+    "description": "主要職責與成就描述"
+  }
+]
+```
+
+### AI 等級定義
+| 等級 | 說明 | ai_score |
+|------|------|---------|
+| A | 優秀，強烈推薦 | 80-100 |
+| B | 良好，值得推薦 | 60-79 |
+| C | 普通，需進一步了解 | 40-59 |
+| D | 不符合，備選 | 0-39 |
+
+### ai_summary 格式 (JSONB)
+```json
+{
+  "grade": "A",
+  "score": 85,
+  "one_liner": "一句話精華描述",
+  "strengths": ["優勢1", "優勢2", "優勢3"],
+  "risks": ["風險1", "風險2"],
+  "next_steps": "下一步建議",
+  "evaluated_at": "2026-03-16T12:00:00.000Z",
+  "evaluated_by": "claude-sonnet-4-6 / Mike"
+}
+```
+
+### Step 5：寫入評估結果 (PATCH)
+```bash
+curl -s -X PATCH "https://api-hr.step1ne.com/api/candidates/{id}" \
+  -H "Authorization: Bearer PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "talent_level": "A",
+    "ai_grade": "A",
+    "ai_score": 85,
+    "ai_recommendation": "強烈推薦",
+    "ai_report": "詳細評估報告...",
+    "ai_summary": {完整 JSON},
+    "target_job_id": 176
+  }'
+```
+
+### 常見錯誤修正
+| 錯誤 | 原因 | 解法 |
+|------|------|------|
+| 未授權 | API Key 錯誤 | 確認 Bearer token |
+| PATCH 沒有更新 | 用了 PUT 或 POST | 一律用 PATCH 更新 |
+| work_history 格式錯誤 | JSON 格式有誤 | 確認是 array of objects |
+| ai_summary 未更新 | 舊版 API 不支援 | 確認使用最新版 API |
+
+### 注意事項
+1. **一律用 PATCH 更新**，不用 PUT
+2. **新增用 POST**（PATCH 需要 id）
+3. **recruiter 欄位**: Jacky 傳的 → 填 "Jacky"，Phoebe 傳的 → 填 "Phoebe"
+4. **talent_level 只接受**: A / B / C / D（不接受 A+）
+5. **skills**: 逗號分隔，不用 |
 
 ---
 
@@ -1280,6 +1515,24 @@ Gateway port: 18789
 
 ---
 
+## 📊 完成的候選人評估 (2026-03-16)
+
+### 陳仁傑 (Chen Ren-Jie) - A- 級，已準備電話篩選
+- **背景**: 國泰金融 資深工程師（15個月待遇，相對穩定）
+- **核心技能**: Java/Kubernetes/CI-CD/微服務架構
+- **頂級匹配**: #229 SD (95/100), #228 SRE (88/100), #224 PG-BE (82/100)
+- **檔案**: `/candidate-assessment-陳仁傑.md`
+- **下一步**: 電話篩選 → 技術深度面試 → 決定推薦職缺
+
+### Zedd Pai (Yuan-Chen Chang) - 8 年系統設計，頂級人才
+- **背景**: Circle Senior SWE (10個月，多鏈支付系統)
+- **核心技能**: System Design, Terraform, Kubernetes, AWS/GCP, Microservices, CI/CD
+- **頂級匹配**: #229 SD (95/100), #46 SRE/DevOps (93/100), #175 Team Lead (92/100 ⛔ 硬停：需驗證4+人管理)
+- **檔案**: `/Zedd-Pai-Job-Matching.md` (7677 bytes, 完整分析)
+- **關鍵發現**: #175 Team Lead 有硬性要求「C# 深度」和「4+人團隊管理經驗」，需電話優先驗證
+
+---
+
 ## 🔴 重要方法論修正：角色匹配應先於評分 (2026-03-12 確立)
 
 ### 發現的流程缺陷
@@ -1337,6 +1590,40 @@ Gateway port: 18789
 - 效率（減少無效的技術要求 for 非技術候選人）
 
 
+
+---
+
+## 🔑 系統遷移 API 金鑰情報 (2026-03-16 更新)
+
+### 當前狀態
+- **舊雲端 API Key**: `PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ` (已棄用，HTTP 500 on candidates endpoint)
+- **本地系統 API Key**: ⏳ **待 Jacky 提供** (VITE_API_KEY / API_SECRET_KEY)
+- **本地系統 Base URL**: `https://api-hr.step1ne.com` (外部) 或 `http://localhost:3003` (內網)
+
+### API 端點驗證狀態 (2026-03-16)
+- ✅ `GET /api/health` → HTTP 200 (database connected)
+- ✅ `GET /api/jobs` → HTTP 200 (50+ jobs accessible)
+- ❌ `GET /api/candidates` (old key) → HTTP 500 (authentication failure)
+- ⏳ PATCH `/api/candidates/:id` (pending new key)
+
+### 下一步
+1. 從 Jacky Chen 索取本地系統 API 金鑰
+2. 驗證新金鑰: `GET /api/candidates` with Bearer token
+3. PATCH 5 名候選人到本地系統驗證上傳成功
+4. 執行開發信發送
+
+---
+
+## 🔌 PostgreSQL Direct Connection Details (2026-03-16 確立)
+
+**Use when Step1ne API fails (502 Bad Gateway)**
+- **Host**: tpe1.clusters.zeabur.com:27883
+- **Database**: zeabur
+- **Auth**: root / etUh2zkR4Mr8gfWLs059S7Dm1T6Yby3Q
+- **Key Table**: `jobs_pipeline` (full schema: job_id, position_name, client_company, key_skills, experience_required, salary_min/max, submission_criteria, interview_stages, rejection_criteria, talent_profile, job_description)
+- **Method**: Node.js pg module (`npm install pg`)
+- **Advantage**: Reliable when API unavailable; direct access to job matching metadata
+- **Caveat**: Only use for read-heavy queries; AI updates still via direct DB (not API PATCH)
 
 ---
 

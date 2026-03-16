@@ -1,0 +1,66 @@
+📋 未聯繫人選 LinkedIn 清單 (AI推薦 + 備選人才 + 未開始)
+生成時間：2026-03-16
+狀態篩選：status ≠ 已聯繫、面試中、已拒絕
+
+🎯 有 LinkedIn 的人選 (優先聯繫):
+
+【AI推薦】
+- Jia-Hau Ching: https://www.linkedin.com/in/jia-hau-ching/
+- Hao-Chen Wu: https://tw.linkedin.com/in/hao-chen-wu-b95933180
+- Hisham Nawzer: (僅AI推薦，無連結)
+- Hsiang Yu C.: (僅AI推薦，無連結)
+- Leandro Huang: (僅AI推薦，無連結)
+- Muhammad Huzaifa: (僅AI推薦，無連結)
+- Patrick Hsu: (僅AI推薦，無連結)
+- Ramadhana Bhanuharya Wishnumurti: (僅AI推薦，無連結)
+- YouChen Huang: (僅AI推薦，無連結)
+- ☁️ Marek Šottl: (僅AI推薦，無連結)
+- 李昆峯: (僅AI推薦，無連結)
+- 林珉: (僅AI推薦，無連結)
+- 許智淵: (僅AI推薦，無連結)
+
+【備選人才】
+- Bagas gilang ramadhan: https://www.linkedin.com/in/bagas-gilang-ramadhan-0119a9252/
+- Chun-Pei Cheng: https://www.linkedin.com/in/chun-pei-cheng-phd-06010268/
+- Guan-Lin Chen: https://www.linkedin.com/in/guan-lin-chen-36980b58/
+- HONGHAO ZHENG: https://www.linkedin.com/in/honghaoz/
+- HSIAO TZU HUNG: https://www.linkedin.com/in/hsiao-tzu-%EF%BC%88anna%EF%BC%89-hung-09829513a/
+- JJ Tsai: https://www.linkedin.com/in/jj-jia-jiuan-tsai-4a334421b/
+- PIN SHAN CHUANG: https://www.linkedin.com/in/shan-chuang/
+- Pin-Huey Chiang: https://www.linkedin.com/in/pin-huey-gillian-chiang/
+- Tzu-Chieh Chen: https://www.linkedin.com/in/tzu-chieh-chen-1106a3201/
+- Wan-Yu Tsai: https://www.linkedin.com/in/wan-yu-tsai/
+- Ya-Han Chang: https://www.linkedin.com/in/yahanchang85/
+- YI-CHIN L.: https://www.linkedin.com/in/yichinduan/
+- ZiQing Feng: https://www.linkedin.com/in/ziqing-feng/
+- 吳昱承: https://www.linkedin.com/in/%E6%98%B1%E6%89%BF-%E5%90%B3-649a47161/
+- 彭尉彰: https://www.linkedin.com/in/%E5%B0%89%E5%BD%B0-%E5%BD%AD-6677221b6/
+- 李承勳: https://tw.linkedin.com/in/承勳-李-318125105
+- 林晉吉: https://www.linkedin.com/in/jinji-33548d3f190d/
+- 楊珮怡: https://fr.linkedin.com/in/pei-yi-yang-21214842/zh-tw
+
+【未開始】
+- YuYi Wang: https://www.linkedin.com/in/yuyi-wang-2a252a9a/
+- foodpanda Taiwan Recruiter: https://www.linkedin.com/in/foodpanda-taiwan-recruiter-a41641219/
+- MichaelO: https://github.com/michael811125
+- Chocobo1: https://github.com/Chocobo1
+- FongMi: https://github.com/FongMi
+- HexRabbit: https://github.com/HexRabbit
+- PCMan: https://github.com/PCMan
+- brucetsao: https://github.com/brucetsao
+- roberthsu2003: https://github.com/roberthsu2003
+- terrynini: https://github.com/terrynini
+- 建國老師: https://github.com/brucetsao
+
+---
+
+📊 統計：
+- 有 LinkedIn 的人選：約 33 位
+- AI推薦無連結：13 位
+- 備選人才總數：約 250+ 位（多數無連結）
+- 未開始總數：約 120+ 位（多數無連結）
+
+💡 建議：
+1. 優先聯繫「有 LinkedIn」的 33 位
+2. AI推薦無連結的 13 位（需補GitHub/其他管道）
+3. 聯繫前可用 Step1ne 系統查詢完整資料
