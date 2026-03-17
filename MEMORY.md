@@ -48,6 +48,37 @@
 - **Bearer Token**: `PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ`
 - **用途**: 候選人匯入、更新 (POST/PATCH /api/candidates)
 - **用法**: `Authorization: Bearer PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ`
+
+## 📄 Excel 檔案提供方式 (2026-03-17 確立 - 標準流程)
+
+**Phoebe 要求**：以後若提供 Excel 檔案，採用此方式
+
+### 步驟：
+1. 用 **Node.js + XLSX 模組** 直接生成標準 Excel 格式
+   ```bash
+   npm install xlsx
+   ```
+
+2. 資料結構：用 `aoa_to_sheet` 轉換二維陣列 → 高相容性
+
+3. 儲存位置：`/Users/oreo/.openclaw/media/outbound/[檔名].xlsx`
+   - 此目錄支援 Telegram 發送
+
+4. 發送方式：
+   ```javascript
+   message.send({
+     target: "6326743721",
+     channel: "telegram",
+     message: "描述",
+     filePath: "/Users/oreo/.openclaw/media/outbound/[檔名].xlsx"
+   })
+   ```
+
+**優勢**：
+- ✅ 100% 標準 Excel 格式
+- ✅ 相容 Excel / Numbers / Google Sheets
+- ✅ 可直接點開使用
+- ✅ 不需轉檔或解壓
 - **⚠️ 重要**: 記住 Key，下次候選人匯入直接用，不要再問 Phoebe
 
 ### Step1ne API 匯入格式規則 (2026-03-16 Jacky確認)
@@ -1627,6 +1658,193 @@ Gateway port: 18789
 
 ---
 
+## 🎯 New Candidates Active (2026-03-17 匯入完成)
+
+### #1975 Evan Chang (張家惟) - PM, 5yr
+- **背景**: 91APP (3yr) → Raccoon AI (9mo)
+- **期待薪資**: 140-150M
+- **最佳匹配**: Playsee PM #216 (92/100 A++)
+  - 理由: SaaS 實戰經驗, English 流暢, AI 產品接觸
+- **風險**: Raccoon AI 短期任職（9 個月）→ 需電話篩選確認離職原因
+- **狀態**: ⏳ 待發開發信 + 電話篩選
+
+### #2693 Amber Lee (Min-Ching) - Senior PM, 10yr
+- **背景**: Phemex (Web3 交易所 Head of Product)
+- **期待薪資**: 150-200M （高端）
+- **評估**: Playsee PM #216 僅 68/100 B+
+  - **不推薦原因**: (1) 薪資期待 150-200M vs #216 開價 130M（落差 >20%），(2) 推估年紀 >33（年齡限制風險）
+  - **組合風險**: 高薪資期待 + 年紀 = 常規職缺接受率極低 (<30%)
+- **對策**: 等待新增高階職缺（VP Product 級別）或融資/上市新創
+- **狀態**: 🔴 暫停，監測高階職位機會
+
+### #2694 Jeffrey Hsu (徐家維) - Data Analyst, 4yr
+- **背景**: Cathay Financial，GenAI/RAG 專家
+- **期待薪資**: 推估 100-120M
+- **最佳匹配**: Playsee Data Engineer #215 (92/100 A++)
+  - 理由: 年資接近 (4yr vs 5yr required)，GenAI/RAG 實戰強，SQL 優化 96%
+  - 風險: 年資短 1 年 → 但技能深度補償
+- **需驗證**: Spark/Dask/Airflow 經驗（電話篩選重點）
+- **狀態**: ⏳ 待發開發信 + 電話篩選
+
+### #2695 Chiou Leon (周立恩) - BIM Engineer, 12yr
+- **背景**: CECI + HowYu（雙重就業，混合）
+- **最佳匹配**: 士芃科技 BIM Engineer #8 (95/100 A++)
+  - 理由: 12yr 遠超 1yr 要求，技能滿足
+- **⚠️ 關鍵風險**:
+  - 履歷過於簡陋 → 無法驗證 Revit 深度
+  - 雙重就業 → 專職承諾不清（可能 part-time 或新創身份）
+  - **必須先電話篩選** 驗證真實能力與意願
+- **狀態**: ⚠️ **先電話篩選，不先發開發信**
+
+---
+
+## ✅ Chen Ren-Jie (陳仁傑) 電話篩選確認 (2026-03-17)
+
+**篩選人**: Jacky | **篩選日期**: 2026-03-17
+
+**關鍵決策**:
+- **PRIMARY**: CMoney Backend Team Lead #175 (年薪 250M，台北無出差) → 🟢 **強烈推薦**
+- **BACKUP**: Playsee Senior Backend #217 (年薪 180M) → 可備選
+- **DO NOT**: 仁大資訊 #229 (五股地點 -40% 薪資落差) → 已拒
+
+**候選人檔案**:
+- 現職: 國泰金控 資深工程師（年薪 160k）
+- 期待薪資: 200-220M （晉升空間大）
+- 可到職: ~1 個月 notice
+- 技術: Java 主力，高併發 4-500 萬單日量（網銀經驗），偏研究但有落地
+- 管理: 3 人小團隊，無 KPI 但有協作
+- 個人因素: 住台北民權西，有小孩，基本無出差意願
+
+**後續**: 立即投遞 CMoney，協助準備 System Design 面試
+
+---
+
+## 📌 當前招募流水 (2026-03-17 晚間更新)
+
+### 進行中 (需要行動)
+1. **Chen Ren-Jie** → 投遞 CMoney #175 ✅ 篩選完
+2. **Evan Chang #1975** → 發開發信 + 電話篩選
+3. **Jeffrey Hsu #2694** → 發開發信 + 電話篩選
+4. **Chiou Leon #2695** → **先電話篩選** (不先發信)
+5. **Guan-Lin Chen #2702** (陳冠霖) → 📣 新增！ Frontend Sr. Engineer, 12yr React
+   - 背景: Yahoo Taiwan Sr. Engineer (8.5yr)
+   - PRIMARY: Playsee Frontend Engineer (98/100 A++)
+   - BACKUP: AIJob Sr. Frontend (96/100 A++)
+   - 開發信: 已生成 4 版本 + Jacky 格式（向雇主推薦）
+   - 下一步: **優先發送 Jacky 格式給 Playsee**
+6. **Shang-Hao Yang #NEW** (楊上昊) → 📣 新增！Backend Engineer, 4yr (Giantforest)
+   - 背景: Giantforest Solutions Backend Engineer (April 2022-present)
+   - 技術棧: Gin, Cloudflare, Swift, Java, Golang
+   - 問題: 履歷僅 1 頁，缺乏專案細節、團隊領導、技術深度
+   - 下一步: 補充履歷資訊（project desc, team experience, GitHub 驗證） → 評分 → 職位匹配
+
+### 備檔/監測 (未行動)
+- **Amber Lee #2693** → 等高階職位開出（暫不推進常規職位）
+  - 現象: 薪資期待 150-200M + 推估年紀 >33 = 高風險組合
+  - 原因: 高薪資通常代表資深，但高年齡會降低常規職位錄用意願
+  - 策略: 等待「可接受高薪資的高階職位」(VP Product 級別)
+
+---
+
+## 🎯 獵頭雙軌發展戰略 (2026-03-17 確立 - STRATEGY SHIFT)
+
+### 舊方式 vs 新方式
+| 面向 | 舊方式 | 新方式 |
+|------|--------|--------|
+| **焦點** | 僅候選人開發 | 候選人 + 客戶並行 |
+| **目標** | 向求職者推銷職位 | 向雇主推薦現成候選人 |
+| **效率** | 低（需 match + interview） | **高（現成人選，快速決策）** |
+| **優勢** | 安全（不洩露） | **成交快（2-4週）** |
+
+### 客戶分層與佣金
+| Tier | 定位 | 特徵 | 佣金 | 周期 |
+|------|------|------|------|------|
+| **Tier 1** | Series A/B Startup | 急招、快速決策 | 5-8% | 2-4週 |
+| **Tier 2** | 上市科技公司 | 流程完整、量大 | 10-15% | 4-8週 |
+| **Tier 3** | 小型新創 | 預算低、靈活 | 5% or fixed fee | 1-2週 |
+
+### 月度 Pipeline 目標
+- 100 cold touches → 25 initial response (25%) → 15 needs calls (60%) → 12 candidate submissions (80%) → 6 signed contracts (50%) → 5 successful placements (83%)
+- **月度營收**: 50-100M TWD (5 placements × 10-20M commission)
+
+### 實例應用：Guan-Lin Chen #2702
+- **傳統方式**: 寄開發信給 Guan-Lin → 約電話 → 推薦職位 → 面試 → 等待 Offer
+- **新方式 (Jacky 格式)**: 
+  - 寄開發信給 **Playsee HR/Tech Lead**：「我手上有位 React Sr. Engineer，12yr 深度，Yahoo Shopping Center 全棧經驗，前端技術領導機會…」
+  - Playsee 快速反應：「直接約他面試」
+  - **時間縮短 50%**，且 Playsee 已經確認需求符合
+- **啟示**: 不是「我推薦候選人去貴公司」，而是「貴公司正好要找的人」
+
+### 核心文檔已生成
+- ✅ `獵頭客戶開發系統架構.md` - 7層完整框架
+- ✅ `客戶開發信_Tier分層模板.md` - Tier 1/2/3 範本
+- ✅ `Guan_Lin_Chen_開發信_Jacky格式.md` - 實際案例（可參考改進）
+
+---
+
+## 🎯 Scott Lin #1208 - Backend Engineer 候選人 (2026-03-17 深度分析完成)
+
+**快速查詢：**
+- **ID**: Step1ne #1208
+- **現職**: Golang Engineer at Mlytics (3yr 6mo, 總10年資深)
+- **核心技能**: Golang ⭐⭐⭐⭐⭐, AWS/GCP ⭐⭐⭐⭐⭐, K8s ⭐⭐⭐⭐, Microservices ⭐⭐⭐⭐⭐
+- **特殊經驗**: DNS架構(PowerDNS→CoreDNS), 多CDN管理(Akamai/Cloudflare/AWS/Alibaba), 99.98% uptime, 支付系統(Google Play/App Store/Stripe/NewebPay)
+- **穩定度**: 70% (4份工作, 平均2.5年, 現職趨穩)
+- **一句話定位**: 「10年資深後端架構師，Golang專家，精通99.98%高可用性分散式系統設計，市場稀缺度⭐⭐⭐⭐⭐」
+
+**Top 3 職缺配對 (資深獵頭深度分析):**
+
+| 優先 | 職位 | ID | 薪資 | 評分 | 推薦 | 原因 |
+|------|------|-------|---------|--------|---------|---------|
+| 🥇 | Backend Engineer (Golang) | #218 | 180k/月 | 98/100 S級 | ✅⭐⭐⭐⭐⭐ | Golang核心技能完全符合, 年資超額 |
+| 🥈 | SRE | #219 | 180k/月 | 96/100 S級 | ✅⭐⭐⭐⭐ | K8s/GCP/99.98% uptime完全符合 |
+| 🥉 | **目標職缺** Playsee Senior Backend | #217 | 180萬/年 | 78/100 A級 | ⚠️ 薪資風險高 | **月薪15k遠低於期望120-150k，拒絕率>95%，顧問務必確認薪資** |
+
+**核心優勢** (5項):
+1. Golang專家級 (⭐⭐⭐⭐⭐) — 現職Golang Engineer, DNS重設計
+2. 分散式系統與高可用性 (⭐⭐⭐⭐⭐) — VoiceTube 99.42%→99.98%, Mlytics多CDN整合
+3. 雲端原生全棧 (⭐⭐⭐⭐⭐) — AWS/GCP/GKE/Docker全覆蓋
+4. 複雜系統整合 (⭐⭐⭐⭐) — 支付系統重構(Google Play/App Store/Stripe/NewebPay)
+5. 監控告警與效能優化 (⭐⭐⭐⭐) — Grafana+Loki, Redis優化
+
+**能力缺口** (可短期補足):
+- ⚠️ QPS/TPS具體優化案例 (需電話驗證VoiceTube日活/QPS數字)
+- ⚠️ MySQL/PostgreSQL深度 (有Redis經驗，可補足)
+- ⚠️ Kafka中間件 (微服務背景，可2-4週補足)
+- ⚠️ DDD實踐 (架構思維成熟，方法論補充即可)
+
+**風險評估**:
+1. 穩定度70% (中等) — 平均任期2.5年，但現職Mlytics 3.5年趨穩，電話需確認轉職理由
+2. 薪資風險 (職缺#217高度警示🔴) — 年薪180萬=月薪15k，遠低於期望120-150k，極可能拒絕
+3. 缺乏明確QPS經驗 (中) — VoiceTube 99.98% uptime隱含高流量，但數字未提及，**此為關鍵驗證點**
+4. 無淘汰條件觸及
+
+**顧問行動 (優先順序)**:
+1. ✅ 立即電話篩選 (#218最優先)
+   - 時間: 24-48h內, 30-45分鐘
+   - 重點Q: Golang架構深度+數字 / VoiceTube日活QPS / 轉職動機 / 薪資期望 / 轉職理由
+2. ✅ 若電話通過 → 立即邀請#218面試 (2-3關: 編碼/系統設計/文化適配)
+3. ⚠️ #217需先確認薪資誤差 (年薪180萬是否為15k/月？)
+4. 📋 電話篩選稿本已備妥 (見下)
+
+**電話篩選稿本 (30-45min)**:
+```
+開場: "嗨Scott，看到你在Golang與分散式系統經驗特別符合，想先聊狀況。"
+Q1: "DNS架構PowerDNS→CoreDNS，具體性能提升多少？(QPS/延遲)"
+Q2: "VoiceTube日活用戶數與每秒請求(QPS)大約多少？99.98%怎麼達成的？"
+Q3: "為什麼想轉職？對下份工作期望？"
+Q4: "履歷顯示平均2.5年轉職，為什麼？"
+Q5: "薪資期望範圍是多少？"
+結尾: "覺得符合#218職缺，接下來邀你參與面試。有問題嗎？"
+```
+
+**進度**: ✅ 深度分析報告已完成 + API回寫系統 (2026-03-17 21:35)
+**AI評估狀態**: ✅ ai_summary JSON已存入Step1ne數據庫
+**推薦行動**: 優先推進職缺#218(98/100 S級), 24-48h內電話篩選
+**關鍵提醒**: 職缺#217薪資異常(年薪180萬=月薪15k)，務必確認後再推薦
+
+---
+
 ## 🎓 Data-Driven Job Matching 核心方法論 (2026-03-13 確立 - CRITICAL)
 
 ### 定理：Job Fit ≠ Technical Score
@@ -1738,4 +1956,284 @@ Job Fit = 充分條件（薪資期待 + 職位性質 + 職涯方向）
 - 技術評分只是入場券（必要不充分）
 - Job Fit 是真正的推薦決策依據
 - 顧問現場反饋 > AI預測
+
+---
+
+## 🎯 Scott Lin #1208 - 深度招募分析 (2026-03-17 完成)
+
+### 候選人完整檔案
+
+**基本資訊**：
+- ID: Step1ne #1208 | Age: 35 | Location: Taipei | Status: Potential/未開始
+- Education: CS Bachelor (Feng Chia University)
+- Current: Golang Engineer @ Mlytics (3.5 years, 現職)
+- Total Experience: **10 years backend engineering** (資深水準)
+- Expected Salary: **100-150k/month**
+
+**核心技能評級** (5星制):
+| 技能 | 等級 | 說明 |
+|------|------|------|
+| Golang | ⭐⭐⭐⭐⭐ | 專家級，DNS架構重設計 |
+| AWS/GCP | ⭐⭐⭐⭐⭐ | 多雲架構設計 |
+| Kubernetes | ⭐⭐⭐⭐ | 容器編排，生產經驗 |
+| Microservices | ⭐⭐⭐⭐⭐ | 分散式系統架構 |
+| DevOps/CI-CD | ⭐⭐⭐⭐ | 部署流程優化 |
+
+**特殊成就** (市場稀缺):
+1. **DNS架構重設計** @ VoiceTube: PowerDNS → CoreDNS migration (效能提升 TBD)
+2. **99.98% 高可用性實現** (多CDN管理, Mlytics架構)
+3. **支付系統整合** (Google Play, App Store, Stripe, NewebPay)
+4. **效能優化完全棧** (Grafana+Loki監控, Redis優化, MySQL調教)
+
+**工作歷程**:
+1. Justinsanity: Backend Engineer (時間 TBD)
+2. RHINOSHIELD: Backend/DevOps (時間 TBD)
+3. VoiceTube: Sr. Backend Engineer (特定時間段, DNS+CDN架構)
+4. Mlytics: Golang Engineer (3.5y, 現職) ← 穩定趨勢
+
+**穩定度分析**:
+- 平均任期: 2.5 years (行業中等水準)
+- 職位變化: 4 jobs over 10 years (正常換公司節奏)
+- 穩定度評分: **70/100** (中等穩定) ← 最近趨穩 (現職3.5y)
+- **風險**: 如果離開Mlytics是被動(推力)而非主動(拉力)，需電話驗證
+
+**一句描述**:
+> 10年資深後端架構師，Golang專家，掌握99.98% HA分散式系統與雲原生棧 ⭐⭐⭐⭐⭐（市場稀缺）
+
+---
+
+### 職缺配對分析 (5維度框架)
+
+#### #218 Backend Engineer | Golang Microservices | 180k/month
+**技術匹配度: 98/100 S級** ✅✅✅
+- Golang完全符合 (專家級)
+- Microservices架構完全符合 (DNSx4, 支付系統x1)
+- DDD實踐：隱含於Mlytics多雲架構設計
+- 分散式系統：99.98% HA經驗完全符合
+
+**薪資匹配: 180k ≥ 期望100-150k** ✅
+- 談判空間充足 (-10% to +15%)
+
+**職位性質匹配: 架構決策權** ✅
+- 高資深候選人期待的職位類型
+- 適合10年Senior Engineer進展軌跡
+
+**職涯發展路徑: CTO/Tech Lead可行** ✅
+- Microservices + Distributed Systems基礎紮實
+- 下一步可向架構師/CTO進階
+
+**文化適配評估**: 
+- 技術主導的公司文化適配 ✅
+- 自主性決策空間需求高 ✅
+- 成長導向 (而非維穩) ✅
+
+**Job Fit評分: 95/100** (薪資35% + 職位40% + 進階路徑25%)
+**推薦等級: S級 - 強烈推進**
+**推進時間: 24-48h內電話篩選**
+
+---
+
+#### #219 SRE | Kubernetes Platform | 180k/month
+**技術匹配度: 96/100 S級** ✅✅
+- Kubernetes經驗充分 (生產環境多年)
+- Prometheus/Grafana監控：完全符合 (Grafana+Loki經驗)
+- GCP經驗：直接符合 (多雲背景)
+- 缺口：SRE特定的observability toolchain (可補足)
+
+**薪資匹配: 180k ≥ 期望100-150k** ✅
+
+**職位性質: 平台工程導向** ✅
+- 適合有DevOps經驗的Senior Engineer
+- 架構決策權仍有（雖不如#218直接）
+
+**職涯發展路徑: Platform Leader可行** ✅
+
+**Job Fit評分: 93/100**
+**推薦等級: S級 - 次優選項**
+**適用場景: 若#218未通過，可立即推進**
+
+---
+
+#### #217 Playsee Senior Backend | 180k/month(?)
+**技術匹配度: 78/100 A級** ⚠️
+- 核心需求: 高並發、payment system
+- Scott強項: Microservices、支付系統整合 ✅
+- 缺口: 具體技術棧未透露 (TBD)
+- 評估: 可轉換，但非優先職位
+
+**薪資匹配: 🚨 CRITICAL ISSUE**
+```
+系統顯示: 180萬/year = 15k/month (!?)
+候選人期望: 100-150k/month
+差距: 85-135k/month (明顯不符)
+```
+**🛑 行動: 勿推薦 直到驗證**
+- 需確認#217薪資是否為系統錯誤
+- 若實際薪資 < 100k，拒絕率 >90%
+- Phoebe需驗證後才能推薦
+
+**Job Fit評分: 35/100** (薪資不符 ❌ + 職位性質中立 ⚠️)
+
+---
+
+#### #220 Data Engineer | Flink/Kafka/Airflow
+**技術匹配度: 25/100 D級** ❌
+- Scott背景: Backend Golang Architecture
+- 職位需求: Data Pipeline Engineer (完全不同領域)
+- 共同點: 分散式系統概念
+- 風險: 轉職成本高, 競爭力低
+
+**推薦: 不推薦** ❌
+- 技術領域差異太大
+- Scott沒有data engineering證據
+- 浪費彼此時間
+
+---
+
+#### #221 PM | Product Leadership/AI Strategy
+**技術匹配度: 20/100 D級** ❌
+- Scott背景: Pure Engineering (no PM experience)
+- 職位需求: Product Manager
+- 共同點: 無
+
+**推薦: 不推薦** ❌
+- 職位類別完全無關
+- 無PM經驗
+- 職涯方向無交集
+
+---
+
+### 電話篩選框架 (30-45 分鐘)
+
+**目標**: 驗證技術深度 + 職涯動機 + 薪資對齊
+
+**開場** (2 min):
+> "嗨Scott，我是Mike，獵頭。看到你在Golang與分散式系統經驗特別符合我們的需求，想先聊一下你的狀況。可以給我30-45分鐘嗎？"
+
+**第一階段 - 技術深度驗證** (15 min):
+
+**Q1**: PowerDNS→CoreDNS DNS架構重設計
+- 具體改了什麼？
+- 性能提升有數據嗎 (QPS/延遲)?
+- 遇到什麼挑戰？
+
+**Q2**: VoiceTube 99.98% 可用性怎麼達成?
+- 日活使用者數大約多少？
+- 每秒請求(QPS)大約多少？
+- 如何處理multi-CDN failover?
+- 遇過最大的outage嗎？
+
+**Q3**: 支付系統整合經驗
+- 接過Google Play、App Store、Stripe整合?
+- 怎麼處理reconciliation logic?
+- 最複雜的部分在哪？
+
+**第二階段 - 職涯方向確認** (10 min):
+
+**Q4**: 為什麼想轉職？(拉力 vs 推力判斷)
+- 現在Mlytics工作怎樣？
+- 3.5年為什麼還想換？
+- 對下份工作最重視什麼？
+  - 技術挑戰?
+  - 做大系統?
+  - 薪資成長?
+  - 工作life balance?
+
+**Q5**: 職涯方向怎麼看？(長期目標)
+- 10年後想做什麼？
+- 想往CTO/技術副總方向？還是pure engineering?
+- 對startup vs scale-up vs大企業的看法？
+
+**第三階段 - 薪資確認** (5 min):
+
+**Q6**: 薪資期望
+- 現在薪資多少？
+- 期望漲幅是多少？(或期望年薪總額?)
+- 薪資是否為決定因素？
+
+**Q7**: Timeline
+- 最早可以開始？
+- 需要notice period多長？
+- 有其他offer嗎？
+
+**結尾** (3 min):
+> "謝謝你這麼詳細的回答。我覺得你特別符合我們#218 Backend Engineer的職位，接下來會邀你參與面試。第一輪是45分鐘的技術面(編碼+系統設計)，有問題嗎？"
+
+**評估指標**:
+- ✅ 技術深度確認 (專家級 vs 言過其實)
+- ✅ 轉職原因確認 (拉力 vs 推力)
+- ✅ 薪資期待確認 (是否與#218 180k對齊)
+- ✅ 職涯方向確認 (是否支持下一步目標)
+
+---
+
+### 推薦行動清單
+
+**優先級 1 - 立即推進 (#218)** 🎯
+- [ ] 驗證#217薪資 (若非嚴重bug，可同時推進)
+- [ ] 準備開發信 (LinkedIn InMail優先)
+  - 主題: 關於Golang分散式架構的機會
+  - 內容: 看到DNS重設計+99.98% HA經驗，想聊聊適合的职位
+  - 信號: 不先揭露薪資/職位，先激發興趣
+- [ ] 24-48h無回應 → 電話篩選
+- [ ] 若電話通過 → 發offer前會面 (48h內)
+- [ ] **預期成功率: 85-90%** (技術完美match + 薪資對齐)
+
+**優先級 2 - 備用方案 (#219)**
+- [ ] 若#218未通過 → 立即推進#219
+- [ ] 同步郵件可同時提及 (但不主推)
+- [ ] **預期成功率: 75-85%**
+
+**優先級 3 - 勿推進 (#220 #221)**
+- ❌ #220: 技術無關，不建議浪費時間
+- ❌ #221: 職位類別無關，直接skip
+
+**優先級 4 - 待驗證 (#217)**
+- ⚠️ Phoebe確認薪資真實後再決定
+- 若實際薪資 ≥ 100k → 可作為第3選項推進
+
+---
+
+### 風險評估 & 應對
+
+**高風險 - 薪資期待差異** (Job #217)
+- 風險: 系統顯示15k vs期望150k = 拒絕率>95%
+- 應對: **勿推薦** 直到驗證
+- 底線: Scott期望最低100k，#217若<100k直接skip
+
+**中風險 - 穩定度70%**
+- 特徵: 4 jobs / 10 years (平均2.5年)
+- 隱憂: 是否pattern離職者? 還是行業正常?
+- 驗證方式: Q4電話篩選「為什麼都換工作」
+- 應對: 若拉力充足(成長導向)，可接受；若推力強(逃避導向)，需謹慎
+
+**低風險 - 技術轉換**
+- 特徵: #219 SRE vs #218 Backend 都在Golang生態
+- 評估: 6-12週內可完全上手
+
+---
+
+### Scott Lin 與 Dennis #1221 對比
+
+| 維度 | Scott #1208 | Dennis #1221 | 差異 |
+|------|------------|------------|------|
+| 技術評分 | 98/100 | 88/100 | Scott更強 |
+| 薪資匹配#218 | ✅180k | N/A | Scott完全符合 |
+| 薪資期待 | 100-150k | 130-150k | 差不多 |
+| Job Fit | 95/100 | 20/100 | **Scott完全不同** |
+| 職位偏好 | 純技術架構 | **管理職** | 方向完全不同 |
+| 推薦行動 | 24-48h推進 | 改推CMoney #175 | 策略完全不同 |
+| 成功率 | 85-90% | 80%+ (正確推薦後) | Scott直接match |
+
+**啟示**: 
+- Dennis失誤 = 推薦錯職位 (技術完美但Job Fit崩潰)
+- Scott正確 = 推薦完美職位 (技術完美 + Job Fit完美)
+- 差異在: 提前驗證職涯方向 (電話篩選框架有效)
+
+---
+
+### 最後更新
+- **分析完成時間**: 2026-03-17 21:35 UTC+8
+- **下一步行動**: 電話篩選 (24-48h)
+- **預期結果**: S級候選人快速落位 (#218 > #219 > #217-pending)
 
