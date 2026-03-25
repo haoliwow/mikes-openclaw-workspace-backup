@@ -4,11 +4,11 @@
 
 ## 版本 A：經驗亮點式（推薦用）
 
-**Subject**: 士芃科技的 BIM 工程師機會 - Jacky 獵頭
+**Subject**: 士芃科技的 BIM 工程師機會 - Phoebe 獵頭
 
 > 嗨 Leon，
 > 
-> 我是 Jacky，專門在找 BIM 和建築工程人才。
+> 我是 Phoebe，專門在找 BIM 和建築工程人才。
 > 
 > 看到你在 CECI Engineering 和 HowYu Construction 同時有 8 年+ 和 12 年+ 的 BIM 經驗，印象深刻。特別是你同時在設計顧問和施工方兩邊做，這意味著你既懂「建築師怎麼想」，也懂「現場施工怎麼做」——這種雙視角在台灣 BIM 人才裡不常見。
 > 
@@ -16,7 +16,7 @@
 > 
 > 你的背景恰好符合。有興趣聊聊嗎？
 > 
-> Jacky
+> Phoebe
 
 ---
 
@@ -26,7 +26,7 @@
 
 > Hi Leon,
 > 
-> I'm Jacky, a recruiter specializing in BIM and civil engineering talent.
+> I'm Phoebe, a recruiter specializing in BIM and civil engineering talent.
 > 
 > Your 12+ years of BIM experience across both design consulting (CECI) and construction (HowYu) caught my attention. Not many engineers have that dual perspective.
 > 
@@ -34,17 +34,17 @@
 > 
 > Based on your background, I think you'd be a great fit. Interested in exploring?
 > 
-> Jacky
+> Phoebe
 
 ---
 
 ## 版本 C：職缺描述式（聚焦機會）
 
-**Subject**: 士芃科技急徵 BIM 工程師 - Jacky 獵頭
+**Subject**: 士芃科技急徵 BIM 工程師 - Phoebe 獵頭
 
 > 嗨 Leon，
 > 
-> 我是獵頭 Jacky，代表 Phoebe 的招募團隊。
+> 我是獵頭 Phoebe，代表 Phoebe 的招募團隊。
 > 
 > 士芃科技（Sheipao Technology）在新北林口，專門做複雜建築項目的 BIM 協調和管理。他們正在找一位資深 BIM 工程師，職責包括：
 > 
@@ -57,7 +57,7 @@
 > 
 > 你的 12 年 BIM 經驗，以及設計+施工的雙重背景，正好是他們要找的。有興趣投投看嗎？
 > 
-> Jacky
+> Phoebe
 
 ---
 
@@ -67,7 +67,7 @@
 
 > Hi Leon,
 > 
-> Chiou Leon? I'm Jacky. Sheipao Technology is hiring a BIM Engineer in Linkou, NTP.
+> Chiou Leon? I'm Phoebe. Sheipao Technology is hiring a BIM Engineer in Linkou, NTP.
 > 
 > **12+ years BIM experience?** Design consulting + construction? That's exactly what they need.
 > 
@@ -78,7 +78,7 @@
 > 
 > Interested in a quick chat?
 > 
-> Jacky
+> Phoebe
 
 ---
 
@@ -139,7 +139,7 @@
 ---
 
 **推薦版本**: A（經驗亮點式）— 突出他的獨特優勢（12yr + 雙視角）
-**發送人**: Jacky (代表 Phoebe)
+**發送人**: Phoebe (代表 Phoebe)
 **發送時間**: 即日（電話篩選前）
 **預期成功率**: 70% (回應率) → 85-90% (篩選通過率，視 Revit 驗證)
 

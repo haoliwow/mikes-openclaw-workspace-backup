@@ -43,4 +43,4 @@
 - 獵頭系統 DELETE API 測試成功但文檔不清
 
 ## 三、明日計畫
-- 待 Phoebe 和 Jacky 確認
+- 待 Phoebe 和 Phoebe 確認

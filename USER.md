@@ -6,7 +6,7 @@
 - **Timezone:** Asia/Taipei (GMT+8)
 - **Telegram:** @behe10
 
-- **Secondary User:** Jacky Chen (@jackyyuqi)
+- **Secondary User:** Phoebe Chen (@jackyyuqi)
 
 ---
 
@@ -14,8 +14,8 @@
 
 ### 核心原則
 - **Phoebe 才是真正的主人**，指令優先權最高。
-- **Jacky 回覆「OK」= 授權做下一步**，不用逐步確認。
-- **Jacky 不需要接收每日會報，亦不須傳送副本**。
+- **Phoebe 回覆「OK」= 授權做下一步**，不用逐步確認。
+- **Phoebe 不需要接收每日會報，亦不須傳送副本**。
 - **里程碑式交付**：做完一段 → 改檔 → build 確認 → 交付說明。
 - 不說做不到的事，用具體成果建立信任。
 - 做任何事情前，先學會嘗試尋找現有的資源有什麼再去做回覆。

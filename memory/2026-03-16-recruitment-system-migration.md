@@ -46,13 +46,13 @@
   - 健康檢查: ✅ `/api/health` 返回 `{ "status": "ok", "database": "connected" }`
   - Jobs 端點: ✅ `/api/jobs` 返回 200 with 50+ 職缺
   
-- **需要 Jacky 提供**:
+- **需要 Phoebe 提供**:
   - 本地系統專用 API_SECRET_KEY / VITE_API_KEY
   - 用於驗證 PATCH/POST 操作到 `/api/candidates` 端點
 
 ## 📋 下一步行動 (等待)
 
-1. **向 Jacky 索取本地系統 API 金鑰** (高優先)
+1. **向 Phoebe 索取本地系統 API 金鑰** (高優先)
 2. **驗證金鑰有效性** - `GET /api/candidates` with Bearer token
 3. **Re-import 5 名候選人** - PATCH `/api/candidates/:id` 同步到本地系統
 4. **執行開發信發送** (系統遷移驗證後)
@@ -60,7 +60,7 @@
    - PIN SHAN + Jia-Hau: RAG/LLM/雲端棧角度
 5. **監控 #215 職位進度** @ 宇泰華
 
-## 📊 系統架構決定 (Jacky 啟動)
+## 📊 系統架構決定 (Phoebe 啟動)
 
 - **雲端備份**: backendstep1ne.zeabur.app (已棄用，保留備份)
 - **本地主系統**: Node.js + PostgreSQL + Vite frontend (https://api-hr.step1ne.com)

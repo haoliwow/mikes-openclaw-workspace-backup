@@ -36,7 +36,7 @@
 - `skills` - 技能（逗號分隔）
 - `source` - 來源（LinkedIn/GitHub/Email/推薦等）
 - `status` - 狀態（未開始/聯繫階段/面試階段等）
-- `recruiter` - 獵頭（通常填 Phoebe/Jacky）
+- `recruiter` - 獵頭（通常填 Phoebe/Phoebe）
 
 ---
 
@@ -46,5 +46,5 @@
 
 ---
 
-**來源**：Jacky 提供 (2026-03-16)  
+**來源**：Phoebe 提供 (2026-03-16)  
 **重要性**：⭐️⭐️⭐️ 高

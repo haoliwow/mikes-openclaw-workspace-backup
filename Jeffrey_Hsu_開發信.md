@@ -4,11 +4,11 @@
 
 ## 版本 A：技術亮點式（推薦用）
 
-**Subject**: Playsee 的 GenAI Data Engineer 機會 - Jacky 獵頭
+**Subject**: Playsee 的 GenAI Data Engineer 機會 - Phoebe 獵頭
 
 > 嗨 Jeffrey，
 > 
-> 我是 Jacky，專門在找 Data Engineer 和 GenAI 基礎設施人才。
+> 我是 Phoebe，專門在找 Data Engineer 和 GenAI 基礎設施人才。
 > 
 > 看到你在國泰金融的工作印象很深——特別是你用 SQL 優化把 5 分鐘的查詢降到 5 秒（96% 效能提升），然後你設計的 RAG 架構（n8n + Supabase + LiteLLM）直接把 BA/DE 團隊的開發週期砍半。這不是優化，這是「系統化思維」。
 > 
@@ -18,7 +18,7 @@
 > 
 > 有興趣聊聊嗎？
 > 
-> Jacky
+> Phoebe
 
 ---
 
@@ -28,7 +28,7 @@
 
 > 嗨 Jeffrey，
 > 
-> 我是獵頭 Jacky，替 Phoebe 的招募團隊找人才。
+> 我是獵頭 Phoebe，替 Phoebe 的招募團隊找人才。
 > 
 > 你在國泰金做的 GenAI 策略、RAG 架構、向量資料庫、SQL 優化——這些體驗對台灣大多數新創都是「沒見過的」等級。
 > 
@@ -41,17 +41,17 @@
 > 
 > 想投投看嗎？
 > 
-> Jacky
+> Phoebe
 
 ---
 
 ## 版本 C：個人化 + 職涯成長式
 
-**Subject**: 從「內部數據優化」到「AI 應用的基礎設施」——Jacky
+**Subject**: 從「內部數據優化」到「AI 應用的基礎設施」——Phoebe
 
 > 嗨 Jeffrey，
 > 
-> 我是 Jacky。看你的履歷時特別注意到一個模式：你在國泰金不只是優化查詢，而是在建構「能支撐企業 GenAI 策略的資料基礎」。
+> 我是 Phoebe。看你的履歷時特別注意到一個模式：你在國泰金不只是優化查詢，而是在建構「能支撐企業 GenAI 策略的資料基礎」。
 > 
 > 從：
 > - 17 個 staging table × 450+ fields 的 schema 重構
@@ -68,7 +68,7 @@
 > 
 > 有時間聊聊嗎？
 > 
-> Jacky
+> Phoebe
 
 ---
 
@@ -78,7 +78,7 @@
 
 > Hi Jeffrey,
 > 
-> I'm Jacky, a recruiter working with Phoebe's team.
+> I'm Phoebe, a recruiter working with Phoebe's team.
 > 
 > Your RAG architecture, vector DB optimization, and SQL performance improvements (96% faster) at Cathay are exactly what Playsee needs for their GenAI Pipelines role.
 > 
@@ -91,7 +91,7 @@
 > 
 > Interested in a quick chat?
 > 
-> Jacky
+> Phoebe
 
 ---
 
@@ -165,7 +165,7 @@
 ---
 
 **推薦版本**: A（技術亮點式）— 強調他的獨特優勢，適合資深工程師
-**發送人**: Jacky (代表 Phoebe)
+**發送人**: Phoebe (代表 Phoebe)
 **發送時間**: 即日
 **預期成功率**: 70-75% (年資小缺口，但能力完全符合)
 

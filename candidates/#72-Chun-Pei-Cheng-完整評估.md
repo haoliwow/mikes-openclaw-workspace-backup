@@ -137,7 +137,7 @@ WHERE candidate_id = 72;
 ## 🚀 下一步行動
 
 ### 立即執行
-- [ ] 向 Jacky 索取本地系統 API 金鑰 (VITE_API_KEY)
+- [ ] 向 Phoebe 索取本地系統 API 金鑰 (VITE_API_KEY)
 - [ ] PostgreSQL 更新 (#72 數據)
 - [ ] API PATCH 驗證 (`PATCH /api/candidates/72`)
 

@@ -81,7 +81,7 @@
 - ✅ 不需轉檔或解壓
 - **⚠️ 重要**: 記住 Key，下次候選人匯入直接用，不要再問 Phoebe
 
-### Step1ne API 匯入格式規則 (2026-03-16 Jacky確認)
+### Step1ne API 匯入格式規則 (2026-03-16 Phoebe確認)
 **正確欄位名**（常見錯誤）：
 - `recruiter` ← 不是 `consultant` ⚠️ 最常踩
 - `total_years` ← 不是 `years_of_experience`
@@ -563,7 +563,7 @@ GET /api/jobs
 - **長期解決**：需詢問系統管理員是否有職位欄位的正確更新方法
 - **影響**：不影響評分流程，只是職位分配無法同步到系統的專用欄位
 
-### Step1ne API education_details 欄位限制 (2026-03-05 發現 - Jacky確認)
+### Step1ne API education_details 欄位限制 (2026-03-05 發現 - Phoebe確認)
 - **限制**：`education_details` 是後端計算欄位，PATCH 時會自動解析顯示，**但不會存入資料庫**
 - **行為**：GET 返回時永遠是 `null` — 系統本身沒有持久化此欄位
 - **實際儲存**：教育資料完整存在 `education`（文字欄），結構化資訊無法獲取
@@ -742,7 +742,7 @@ curl -s -X PATCH "https://api-hr.step1ne.com/api/candidates/{id}" \
 ### 注意事項
 1. **一律用 PATCH 更新**，不用 PUT
 2. **新增用 POST**（PATCH 需要 id）
-3. **recruiter 欄位**: Jacky 傳的 → 填 "Jacky"，Phoebe 傳的 → 填 "Phoebe"
+3. **recruiter 欄位**: Phoebe 傳的 → 填 "Phoebe"，Phoebe 傳的 → 填 "Phoebe"
 4. **talent_level 只接受**: A / B / C / D（不接受 A+）
 5. **skills**: 逗號分隔，不用 |
 
@@ -1080,7 +1080,7 @@ Gateway port: 18789
 
 **Step1ne API 4-Step Flow (CRITICAL - camelCase REQUIRED):**
 ```
-1. POST /api/candidates (header: X-Actor: Jacky-aibot) → get ID
+1. POST /api/candidates (header: X-Actor: Phoebe-aibot) → get ID
 2. PATCH /api/candidates/{id} with targetJobId
 3. PATCH with workHistory[], educationDetails{}, yearsExperience, currentPosition
 4. PATCH with aiMatchResult{score, grade, conclusion}, stabilityScore
@@ -1092,7 +1092,7 @@ Gateway port: 18789
 - **Lesson learned (2026-03-05)**: Initial checkpoint incorrectly stated snake_case; camelCase is the ONLY accepted format
 - **All 34 Java candidates (#1287-#1334)**: Successfully uploaded using corrected camelCase field names
 
-**Job Assignment (Jacky's Decision Tree):**
+**Job Assignment (Phoebe's Decision Tree):**
 - Java + Spring/Microservices → #52 (Java Backend)
 - C++ + Multithreading → #51 (C++ Engineer)
 - DevOps/CI-CD (junior-mid) → #53 (DevOps 一通數位)
@@ -1648,7 +1648,7 @@ Gateway port: 18789
 
 ### 當前狀態
 - **舊雲端 API Key**: `PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ` (已棄用，HTTP 500 on candidates endpoint)
-- **本地系統 API Key**: ⏳ **待 Jacky 提供** (VITE_API_KEY / API_SECRET_KEY)
+- **本地系統 API Key**: ⏳ **待 Phoebe 提供** (VITE_API_KEY / API_SECRET_KEY)
 - **本地系統 Base URL**: `https://api-hr.step1ne.com` (外部) 或 `http://localhost:3003` (內網)
 
 ### API 端點驗證狀態 (2026-03-16)
@@ -1658,7 +1658,7 @@ Gateway port: 18789
 - ⏳ PATCH `/api/candidates/:id` (pending new key)
 
 ### 下一步
-1. 從 Jacky Chen 索取本地系統 API 金鑰
+1. 從 Phoebe Chen 索取本地系統 API 金鑰
 2. 驗證新金鑰: `GET /api/candidates` with Bearer token
 3. PATCH 5 名候選人到本地系統驗證上傳成功
 4. 執行開發信發送
@@ -1720,7 +1720,7 @@ Gateway port: 18789
 
 ## ✅ Chen Ren-Jie (陳仁傑) 電話篩選確認 (2026-03-17)
 
-**篩選人**: Jacky | **篩選日期**: 2026-03-17
+**篩選人**: Phoebe | **篩選日期**: 2026-03-17
 
 **關鍵決策**:
 - **PRIMARY**: CMoney Backend Team Lead #175 (年薪 250M，台北無出差) → 🟢 **強烈推薦**
@@ -1750,8 +1750,8 @@ Gateway port: 18789
    - 背景: Yahoo Taiwan Sr. Engineer (8.5yr)
    - PRIMARY: Playsee Frontend Engineer (98/100 A++)
    - BACKUP: AIJob Sr. Frontend (96/100 A++)
-   - 開發信: 已生成 4 版本 + Jacky 格式（向雇主推薦）
-   - 下一步: **優先發送 Jacky 格式給 Playsee**
+   - 開發信: 已生成 4 版本 + Phoebe 格式（向雇主推薦）
+   - 下一步: **優先發送 Phoebe 格式給 Playsee**
 6. **Shang-Hao Yang #NEW** (楊上昊) → 📣 新增！Backend Engineer, 4yr (Giantforest)
    - 背景: Giantforest Solutions Backend Engineer (April 2022-present)
    - 技術棧: Gin, Cloudflare, Swift, Java, Golang
@@ -1789,7 +1789,7 @@ Gateway port: 18789
 
 ### 實例應用：Guan-Lin Chen #2702
 - **傳統方式**: 寄開發信給 Guan-Lin → 約電話 → 推薦職位 → 面試 → 等待 Offer
-- **新方式 (Jacky 格式)**: 
+- **新方式 (Phoebe 格式)**: 
   - 寄開發信給 **Playsee HR/Tech Lead**：「我手上有位 React Sr. Engineer，12yr 深度，Yahoo Shopping Center 全棧經驗，前端技術領導機會…」
   - Playsee 快速反應：「直接約他面試」
   - **時間縮短 50%**，且 Playsee 已經確認需求符合
@@ -1798,7 +1798,7 @@ Gateway port: 18789
 ### 核心文檔已生成
 - ✅ `獵頭客戶開發系統架構.md` - 7層完整框架
 - ✅ `客戶開發信_Tier分層模板.md` - Tier 1/2/3 範本
-- ✅ `Guan_Lin_Chen_開發信_Jacky格式.md` - 實際案例（可參考改進）
+- ✅ `Guan_Lin_Chen_開發信_Phoebe格式.md` - 實際案例（可參考改進）
 
 ---
 
@@ -1872,7 +1872,7 @@ Q5: "薪資期望範圍是多少？"
 **數據點**：Dennis Lin #1221 案例
 - **技術評分**：88/100（仁大 #229 SD System Designer，架構設計符合度極高）
 - **AI系統推薦**：仁大 #229 強烈推薦
-- **顧問備註**（Jacky 電話面談 2026/3/6）：
+- **顧問備註**（Phoebe 電話面談 2026/3/6）：
   - 期望薪資：130-150 萬/年（月薪 10.8-12.5 萬）
   - 職涯方向：**只考慮管理職**，不考慮純技術職
   - 職涯目標：**CTO 路徑**（需技術 + 管理雙軌）
@@ -1936,7 +1936,7 @@ Job Fit = 充分條件（薪資期待 + 職位性質 + 職涯方向）
    - 但每個職缺必須通過 Job Fit 檢驗
 
 3. **顧問備註信任**：
-   - Jacky 的現場電話面談 > AI 系統評分
+   - Phoebe 的現場電話面談 > AI 系統評分
    - 發現顧問備註與系統評分矛盾時，**信任顧問備註**
    - 理由：顧問掌握真實動機，AI只能推測
 

@@ -10,6 +10,6 @@
   "dependencies": {
     "playwright": "^1.40.0"
   },
-  "author": "Jacky Chen",
+  "author": "Phoebe Chen",
   "license": "MIT"
 }

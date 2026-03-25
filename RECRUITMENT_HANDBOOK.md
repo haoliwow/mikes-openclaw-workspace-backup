@@ -1,7 +1,7 @@
 # 招募手冊 (Recruitment Handbook)
 
 **最後更新：2026-03-02**  
-**維護者：Phoebe + Jacky**
+**維護者：Phoebe + Phoebe**
 
 ---
 
@@ -13,7 +13,7 @@
 
 ## 👥 角色分工
 
-| 職責 | Phoebe | Jacky |
+| 職責 | Phoebe | Phoebe |
 |------|--------|-------|
 | **戰略決策** | ✅ | — |
 | **職缺確認** | ✅ | — |
@@ -30,18 +30,18 @@
 ### **週期：每週一次完整檢查 + 按需發文**
 
 ```
-Monday 上午 (Phoebe + Jacky 同步)
+Monday 上午 (Phoebe + Phoebe 同步)
 ├─ 確認本週招募目標職缺
 ├─ 檢查上週應募數 / 轉化率
 └─ 規劃本週發文平台
 
-Tuesday-Friday (Jacky 執行)
+Tuesday-Friday (Phoebe 執行)
 ├─ 社群檢查 (Dcard / PTT / Discord 等)
 ├─ 發文 (LinkedIn / Facebook / 論壇)
 └─ 簡歷初篩（符合基本條件）
 
 Friday 下午 (Phoebe 評分)
-├─ 審閱 Jacky 初篩的簡歷
+├─ 審閱 Phoebe 初篩的簡歷
 ├─ 詳細評分 (0-100)
 ├─ 指派職位 + talent_level
 └─ 更新 Step1ne 系統
@@ -52,7 +52,7 @@ Friday 下午 (Phoebe 評分)
 
 ## 📋 檢查清單 (Weekly Checklist)
 
-### 1️⃣ 社群檢查 (Jacky)
+### 1️⃣ 社群檢查 (Phoebe)
 - [ ] **Dcard** - 工程版 / 科技版是否有相關討論？
   - URL: https://www.dcard.tw/
   - 平台：技術求職 post
@@ -67,7 +67,7 @@ Friday 下午 (Phoebe 評分)
 - [ ] **LinkedIn** - 檢查過往發文反應，分析什麼文案效果最好
   - 最後檢查日期：___
 
-### 2️⃣ 簡歷收集 (Jacky 初篩)
+### 2️⃣ 簡歷收集 (Phoebe 初篩)
 - [ ] 收集本週新應募簡歷 (PDF / 連結)
 - [ ] 檢查基本條件：
   - 是否有聯繫方式（Email / Phone / LinkedIn）？
@@ -78,7 +78,7 @@ Friday 下午 (Phoebe 評分)
   - 使用檔案：`/MEMORY.md` > Step1ne API 批量匯入格式
 
 ### 3️⃣ 詳細評分 (Phoebe)
-- [ ] 審閱 Jacky 初篩結果
+- [ ] 審閱 Phoebe 初篩結果
 - [ ] 根據「評分框架」打分（0-100）
 - [ ] 指派最佳職位（可能與應募職位不同）
 - [ ] 設定 talent_level (A+ / A / B / C)
@@ -119,10 +119,10 @@ Friday 下午 (Phoebe 評分)
 ### 技術社群（高優先）
 | 平台 | URL | 帳號狀態 | 維護人 | 發文頻率 | 最後檢查 |
 |------|-----|--------|-------|--------|--------|
-| **Dcard** | https://www.dcard.tw/ | ✅ | Jacky | 每週 1 次 | — |
-| **PTT** | https://www.ptt.cc/ | ✅ | Jacky | 每週 1 次 | — |
-| **Discord** | [群組連結待補] | 待確認 | Jacky | — | — |
-| **Telegram** | [群組待補] | 待確認 | Jacky | — | — |
+| **Dcard** | https://www.dcard.tw/ | ✅ | Phoebe | 每週 1 次 | — |
+| **PTT** | https://www.ptt.cc/ | ✅ | Phoebe | 每週 1 次 | — |
+| **Discord** | [群組連結待補] | 待確認 | Phoebe | — | — |
+| **Telegram** | [群組待補] | 待確認 | Phoebe | — | — |
 | **LinkedIn** | [Phoebe 帳號] | ✅ | Phoebe | 每月 2-3 次 | — |
 | **Facebook** | [頁面待補] | ✅ | Phoebe | 每月 2-3 次 | — |
 
@@ -213,7 +213,7 @@ Friday 下午 (Phoebe 評分)
 ## 📞 聯繫方式
 
 - **Phoebe** (@behe10) - 戰略 & 評分決策
-- **Jacky** (@jackyyuqi) - 執行 & 社群發文
+- **Phoebe** (@jackyyuqi) - 執行 & 社群發文
 
 ---
 

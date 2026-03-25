@@ -215,7 +215,7 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 
 **角色：**
 - **Phoebe** - 戰略決策、詳細評分、最終決定
-- **Jacky** - 社群管理、簡歷初篩、發文執行
+- **Phoebe** - 社群管理、簡歷初篩、發文執行
 
 ## Make It Yours
 

@@ -7,7 +7,7 @@
 
 ## 版本 A：合作機會式（推薦用）
 
-**Subject**: 台灣科技招聘合作機會 - Phoebe / Jacky
+**Subject**: 台灣科技招聘合作機會 - Phoebe / Phoebe
 
 > 嗨 Tony，
 > 

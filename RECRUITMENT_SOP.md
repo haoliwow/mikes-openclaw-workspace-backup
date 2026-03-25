@@ -29,7 +29,7 @@
 | 項目 | 值 |
 |------|-----|
 | API Base URL | https://backendstep1ne.zeabur.app |
-| Actor Header | `X-Actor: Jacky-aibot`（所有 POST 必須帶） |
+| Actor Header | `X-Actor: Phoebe-aibot`（所有 POST 必須帶） |
 | Google Drive 帳號 | `aijessie88@step1ne.com` |
 | 履歷雲端資料夾 | https://drive.google.com/drive/folders/16IOJW0jR2mBgzBnc5QI_jEHcRBw3VnKj |
 
@@ -41,7 +41,7 @@
 
 ```bash
 curl "https://backendstep1ne.zeabur.app/api/candidates?q=姓名" \
-  -H "X-Actor: Jacky-aibot"
+  -H "X-Actor: Phoebe-aibot"
 ```
 
 - ✅ 無重複 → 繼續 Step 2
@@ -81,12 +81,12 @@ curl "https://backendstep1ne.zeabur.app/api/candidates?q=姓名" \
   "email": "xxx@gmail.com",
   "skills": "技能1, 技能2, 技能3",
   "location": "台北",
-  "consultant": "Jacky",
+  "consultant": "Phoebe",
   "status": "AI推薦"
 }
 ```
 
-> ⚠️ 所有 POST 必須帶 Header：`X-Actor: Jacky-aibot`，否則 timeout
+> ⚠️ 所有 POST 必須帶 Header：`X-Actor: Phoebe-aibot`，否則 timeout
 
 **PATCH 補充詳細資料：**
 
@@ -109,7 +109,7 @@ curl "https://backendstep1ne.zeabur.app/api/candidates?q=姓名" \
 
 ```
 PUT /api/candidates/{id}/pipeline-status
-Body: {"status": "AI推薦", "by": "Jacky-aibot"}
+Body: {"status": "AI推薦", "by": "Phoebe-aibot"}
 ```
 
 可用狀態：
@@ -153,7 +153,7 @@ Body: {"notes": "現有備註 📎 LinkedIn PDF：https://drive.google.com/file/
 | POST only 欄位 | job_changes, avg_tenure_months, recent_gap_months — 只能在 POST 設定，如需修改須刪除重建 |
 | 查重端點 | 用 `GET /api/candidates?q=xxx`，禁止用 `/api/candidates/search`（會觸發路由 bug） |
 | target_job_id | 直接 PATCH `{"target_job_id": {job_id}}`，不要放在 ai_match_result 內 |
-| 備選人才 | POST 後系統會自動指派 Jacky，需補 PATCH `{"consultant":"待指派","recruiter":"待指派"}` |
+| 備選人才 | POST 後系統會自動指派 Phoebe，需補 PATCH `{"consultant":"待指派","recruiter":"待指派"}` |
 
 ---
 
