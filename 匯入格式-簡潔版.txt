@@ -1,0 +1,67 @@
+【Step1ne API 候選人匯入格式】
+
+【必填 10 項】
+1. name - 姓名（中英文皆可）
+2. email - 電郵
+3. phone - 電話
+4. current_position - 現職職位
+5. current_company - 現職公司
+6. total_years - 總年資（用字串，如 "3.67"，不是數字）
+7. skills - 技能（逗號分隔，如 "Java, Spring Boot, PostgreSQL"）
+8. location - 地點（如 "台北市"）
+9. source - 來源（如 "CakeResume"、"LinkedIn"、"推薦"）
+10. recruiter - 負責獵頭（如 "Phoebe"、"Jim"）
+
+【推薦欄位】
+- linkedin_url - LinkedIn 連結
+- status - 狀態（"已聯繫" 或 "備選人才"）
+- stability_score - 穩定度（20-100 數字）
+- talent_level - 評級（只用 A/B/C，不接受 A+）
+- notes - 備註（如 "職位：#224 PG-BE @ 仁大資訊"）
+- education - 教育背景（文字格式，如 "台大資工 學士 2020"）
+
+【work_history 工作經歷 - 重要】
+格式：JSON 陣列（必須完整）
+
+[
+  {
+    "company": "公司名",
+    "title": "職位名",
+    "start": "2023-01",（YYYY-MM 格式）
+    "end": "present" 或 "2023-12",
+    "description": "工作描述"
+  },
+  {
+    "company": "前公司",
+    "title": "職位名",
+    "start": "2021-06",
+    "end": "2023-12",
+    "description": "工作描述"
+  }
+]
+
+【常見錯誤 - 必須避免】
+1. ❌ total_years 用數字（3.67）→ ✅ 改為字串 ("3.67")
+2. ❌ talent_level 用 "A+" → ✅ 改為 "A"（系統只接 A/B/C）
+3. ❌ work_history 是物件 {...} → ✅ 改為陣列 [{...}, {...}]
+4. ❌ 職位欄位無法更新 → ✅ 用 notes 欄位代替（如 "職位：#224"）
+5. ❌ education_details 不會存儲 → ✅ 用 education 文字欄替代
+
+【狀態區分 - Phoebe 規則】
+- 有寄開發信 = status: "已聯繫"
+- 沒寄開發信 = status: "備選人才"
+- 無論如何都要匯入，不能拒絕
+
+【API 資訊】
+URL: https://api-hr.step1ne.com/api/candidates
+Method: POST
+Auth: Bearer PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ
+
+【檢查清單】
+☐ 建檔成功（ID 已生成）
+☐ Email 有效（不重複）
+☐ total_years 是字串
+☐ work_history 完整且是陣列
+☐ talent_level 只用 A/B/C
+☐ status 正確（已聯繫 或 備選人才）
+☐ 職位資訊在 notes 欄編碼
