@@ -36,3 +36,9 @@
 - API Key: `PotfZ42-qPyY4uqSwqstpxllQB1alxVfjJsm3Mgp3HQ`
 - Base URL: https://api-hr.step1ne.com
 - SOP: `/api/guide/resume-sop`
+
+---
+
+## 待辦事項 (新增)
+
+- ⏰ 提醒：問 Kim 網頁原始碼有沒有手機版 (待 Phoebe 提供聯絡方式或指示)
