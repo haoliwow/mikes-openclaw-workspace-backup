@@ -42,3 +42,12 @@
 ## 待辦事項 (新增)
 
 - ⏰ 提醒：問 Kim 網頁原始碼有沒有手機版 (待 Phoebe 提供聯絡方式或指示)
+- ✅ 每日備份回報 2026-05-08
+  • 時間：22:00-22:05（台灣時間）
+  • Commit：自動生成
+  • 備份至：github.com/haoliwow/mikes-openclaw-workspace-backup
+
+  📋 備份內容
+  • MEMORY.md（長期記憶） ✅
+  • memory/YYYY-MM-DD.md（當日工作紀錄） ✅
+  • 工作區所有檔案 ✅
