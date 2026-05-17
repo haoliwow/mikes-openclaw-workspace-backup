@@ -41,7 +41,7 @@
 
 ## 待辦事項 (新增)
 
-- ✅ 每日備份回報 2026-05-17
+- 📋 每日備份回報 2026-05-18 (待執行)
   • 時間：22:00-22:05（台灣時間）
   • Commit：自動生成
   • 備份至：github.com/haoliwow/mikes-openclaw-workspace-backup
